@@ -1,14 +1,113 @@
 \documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% paquetes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage{biblatex}
+\usepackage{amsmath}
+\spanishdatedel
+\usepackage[left=3cm, right=3cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+% \usepackage{graphics}%  ps, eps
+\usepackage{graphicx} %png, jpg, pdf
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{Título del documento}
-\author{rral}
+\author{Luis Robles}
 \date{\today}
 
 \begin{document}
 \maketitle
 
-Contenido del documento
+\begin{abstract}
+Irure ut duis fugiat adipisicing anim sunt id occaecat culpa ea. Lorem tempor voluptate aliquip commodo occaecat non veniam. Ex magna voluptate incididunt eu exercitation enim reprehenderit est eu do eiusmod anim.
+% falta mejorar el resumen, traducir
+\end{abstract}
+
+% \tableofcontents
+
+\section{Primera sesion}
+Cupidatat sunt nulla occaecat irure reprehenderit mollit et excepteur. Adipisicing sit adipisicing sunt ex et laborum. Pariatur tempor incididunt commodo occaecat. Aute nisi mollit laboris officia quis excepteur proident.
+
+\includegraphics{img/logoMFP.png}
+
+\subsection{seccion test}
+Sit aliquip anim nostrud laborum eu eu quis irure est. Sit enim nostrud ullamco labore magna officia occaecat. Elit dolor mollit esse in pariatur cupidatat est aliquip aute culpa nisi pariatur. Ex ad ex tempor ut excepteur ex esse veniam nisi esse consectetur ullamco eiusmod excepteur. Qui fugiat laboris in tempor officia aute dolor est enim sit do. Do dolore laborum elit officia laborum id nisi nulla quis ullamco excepteur enim. Pariatur duis adipisicing elit eiusmod consectetur pariatur enim eu.
+
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width = 0.3\textwidth]{img/logoMFP.png}\\
+  \includegraphics[scale = 0.3, angle = 45]{img/logoMFP.png}\\
+  \includegraphics[scale = 0.3, angle = -45]{img/logoMFP.png}
+\end{figure}
+
+\section{Ecuaciones matemáticas}
+Cupidatat sunt nulla occaecat irure reprehenderit mollit et excepteur. Adipisicing sit $\vec{F} = m \vec{a}$ adipisicing sunt ex et laborum. Pariatur tempor incididunt commodo occaecat. Aute nisi mollit laboris officia quis excepteur proident. %tal como lo demuestra la Ec. \ref{ec:2newton}
+
+
+\subsection{Entorno displaymath}
+
+% $$\vec{F} = m \vec{a}$$
+
+\begin{displaymath}
+  \vec{F} = m \vec{a}
+\end{displaymath}
+
+\subsection{Entorno equation}
+
+\begin{equation}
+  \vec{F} = m \vec{a}
+  % \label{ec:2newton}
+\end{equation}
+% Joaquin com oincluir la seecion en la ecuacíon
+
+\begin{equation}
+  \int_1^n \alpha \beta \vec{F} = m \vec{a} \frac{a}{b}
+  % \label{ec:2newton}
+\end{equation}
+
+
+\begin{equation}
+\sum_{n = 1}^{\infty}
+\end{equation}
+
+\begin{equation}
+  \begin{split}
+    H_c&=\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2}
+    \sum_{l _1+\dots+ l _p=l}\prod^p_{i=1} \binom{n_i}{l _i}\\
+    &\quad\cdot[(n-l )-(n_i-l _i)]^{n_i-l _i}\cdot
+    \Bigl[(n-l )^2-\sum^p_{j=1}(n_i-l _i)^2\Bigr].
+  \end{split}
+\end{equation}
+
+\begin{equation}
+  \mu=e^{\int P dx}
+  \end{equation}
+
+% joaquin integral grande
+% marca de agua imagen ok
+
+% \begin{eqnarray*}
+%   A&=& \frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2}\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2},\\
+%   & &\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2}\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2},\\
+%   & &\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2}\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2}
+%   \end{eqnarray*}
+
+\section{tercera seccion}
+Cupidatat sunt nulla occaecat irure reprehenderit mollit et excepteur. Adipisicing sit adipisicing sunt ex et laborum. Pariatur tempor incididunt commodo occaecat. Aute nisi mollit laboris officia quis excepteur proident.
+
+\subsection{primera subseccion}
+Cupidatat sunt nulla occaecat irure reprehenderit mollit et excepteur. Adipisicing sit adipisicing sunt ex et laborum.
+
+\subsubsection{otra seccion}
+
+Pariatur tempor incididunt commodo occaecat. Aute nisi mollit laboris officia quis excepteur proident.
+
+
+
 
 \end{document}
+
