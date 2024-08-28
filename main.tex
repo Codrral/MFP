@@ -4,19 +4,45 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{caption}
 \usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+\urlstyle{same}
+\usepackage{listingsutf8} % Paquete para soportar caracteres UTF-8 en listings
+\lstset{
+    inputencoding=utf8, % Permite caracteres especiales
+    extendedchars=true, % Activa caracteres extendidos
+    literate=%
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\ttfamily\scriptsize,
+    keywordstyle=\color{blue},
+    identifierstyle=\color{magenta},
+}
+
 \spanishdatedel
 \usepackage[left=3cm, right=3cm, top=2.5cm, bottom=2.5cm]{geometry}
-
-% \usepackage{graphics}%  ps, eps
-\usepackage{graphicx} %png, jpg, pdf
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{Título del documento}
 \author{Luis Robles}
 \date{\today}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \maketitle
 
@@ -25,54 +51,228 @@ Irure ut duis fugiat adipisicing anim sunt id occaecat culpa ea. Lorem tempor vo
 % falta mejorar el resumen, traducir
 \end{abstract}
 
-% \tableofcontents
+\section{Introducción a LaTeX}
+En el mundo de la creación de documentos, especialmente en el ámbito académico y científico, es fundamental contar con herramientas que no solo permitan escribir contenido, sino también garanticen una presentación clara, profesional y consistente. A lo largo de los años, muchos investigadores, profesores y estudiantes han buscado formas de mejorar la calidad tipográfica de sus trabajos y simplificar la gestión de bibliografías, citas, tablas, figuras, y ecuaciones matemáticas complejas.
 
-\section{Primera sesion}
-Cupidatat sunt nulla occaecat irure reprehenderit mollit et excepteur. Adipisicing sit adipisicing sunt ex et laborum. Pariatur tempor incididunt commodo occaecat. Aute nisi mollit laboris officia quis excepteur proident.
+En este contexto, surge \LaTeX{}, una herramienta poderosa y ampliamente utilizada para la preparación de documentos de alta calidad. A diferencia de los procesadores de texto tradicionales, donde el formato y el contenido se gestionan de manera visual e inmediata, \LaTeX{} ofrece un enfoque diferente, permitiendo a los autores concentrarse en el contenido y la estructura de su documento, mientras que el formato es manejado por el sistema. Este enfoque no solo facilita la creación de documentos complejos sino que también asegura que el resultado final cumpla con los más altos estándares de presentación tipográfica.
 
-\includegraphics{img/logoMFP.png}
+\subsection{¿Qué es LaTeX?}
+\LaTeX{}\footnote{Desarrollado por Leslie Lamport} es un sistema de preparación de documentos de alta calidad, especialmente adecuado para la escritura de documentos científicos y técnicos que contienen fórmulas matemáticas complejas. Es una colección de macros y comandos que extienden la funcionalidad de \TeX\footnote{Desarrollado por Donald Knuth en la década de 1970}.
 
-\subsection{seccion test}
-Sit aliquip anim nostrud laborum eu eu quis irure est. Sit enim nostrud ullamco labore magna officia occaecat. Elit dolor mollit esse in pariatur cupidatat est aliquip aute culpa nisi pariatur. Ex ad ex tempor ut excepteur ex esse veniam nisi esse consectetur ullamco eiusmod excepteur. Qui fugiat laboris in tempor officia aute dolor est enim sit do. Do dolore laborum elit officia laborum id nisi nulla quis ullamco excepteur enim. Pariatur duis adipisicing elit eiusmod consectetur pariatur enim eu.
+\LaTeX{} se centra en la separación del contenido y el formato, permitiendo a los usuarios escribir en un formato sencillo y claro, mientras que el sistema se encarga de la presentación visual. Esto hace que sea especialmente útil para documentos largos y complejos, donde la consistencia y la calidad tipográfica son importantes.
+
+\subsection{Instalación de \LaTeX{} y herramientas necesarias}
+\begin{center}
+  \begin{Large}
+    \textbf{Ver video} \\
+  \end{Large}
+  \url{https://drive.google.com/drive/folders/1vUHs7PPenpT4D2z5t3HZPozbD5wcjbM6?usp=sharing}
+\end{center}
+\clearpage
+\subsection{Primer documento en LaTeX}
+
+\subsubsection{Estructura básica de un documento en \LaTeX}
+\begin{lstlisting}[caption={Contenido mínimo de un documento en \LaTeX}]
+\documentclass{article}
+% preámbulo
+% sección de paquetes
+
+\begin{document}
+    Contenido del documento
+\end{document}
+\end{lstlisting}
+
+\section{Formato y Estructuración de Documentos}
+
+\subsection{Secciones y subsecciones}
+\subsection{Formato de texto (negritas, cursivas, subrayados, etc.)}
+
+\subsubsection{Negritas}
+
+\subsubsection{Cursivas}
+\subsubsection{Subrayados}
 
 
+\subsection{Items y Listas}
+\subsubsection{Entorno itemize}
+el torno itemize permite listar el contenido en base a \textbf{ítems}
 
-\begin{figure}[h]
+\begin{minipage}{0.5\textwidth}
+  \begin{lstlisting}[language = TeX, caption = Codigo emjemplo]
+    \begin{itemize}
+      \item Primer item
+      \item Segundo item
+      \item Tercer item
+    \end{itemize}
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{itemize}
+    \item Primer item
+    \item Segundo item
+    \item Tercer item
+    \end{itemize}
+\end{minipage}
+
+\subsubsection{Entorno enumerate}
+Permite listar el contenido mediante números
+
+\begin{minipage}{0.5\textwidth}
+  \begin{lstlisting}[language = TeX, caption = Codigo emjemplo]
+    \begin{enumerate}
+      \item Primer item enumerado
+      \item Segundo item enumerado
+      \item Tercer item enumerado
+    \end{enumerate}
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{enumerate}
+    \item Primer item enumerado
+    \item Segundo item enumerado
+    \item Tercer item enumerado
+  \end{enumerate}
+\end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Figuras}
+Para insertar una figura podemos usar el comando \textbf{ \textbackslash includegraphics\{ruta de la figura\}}
+
+\begin{minipage}{0.7\textwidth}
+  \begin{lstlisting}[caption = Ejemplo para incertar figura]
+    \includegraphics[width = 0.3\textwidth]{img/logoMFP.png}
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \includegraphics[width = 0.3\textwidth]{img/logoMFP.png}
+\end{minipage}
+
+También se puede usar el entono \textbf{figure}
+
+\begin{minipage}{0.5\textwidth}
+  \begin{lstlisting}[caption = entorno figure]
+    \begin{figure}[h]
+      \centering
+      \includegraphics[scale=0.3]{img/logoMFP.png}
+      \caption{Logo de MFP}
+      \label{fig:logoMFPef}
+    \end{figure}
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
   \centering
-  \includegraphics[width = 0.3\textwidth]{img/logoMFP.png}\\
-  \includegraphics[scale = 0.3, angle = 45]{img/logoMFP.png}\\
-  \includegraphics[scale = 0.3, angle = -45]{img/logoMFP.png}
-\end{figure}
+    \includegraphics[scale=0.3]{img/logoMFP.png}
+    \captionof{figure}{Logo de MFP}
+    \label{fig:logoMFPef}
+\end{minipage}
 
-\section{Ecuaciones matemáticas}
-Cupidatat sunt nulla occaecat irure reprehenderit mollit et excepteur. Adipisicing sit $\vec{F} = m \vec{a}$ adipisicing sunt ex et laborum. Pariatur tempor incididunt commodo occaecat. Aute nisi mollit laboris officia quis excepteur proident. %tal como lo demuestra la Ec. \ref{ec:2newton}
+\subsubsection{argumentos extras}
+\begin{itemize}
+  \item scale
+  \item angle
+  \item width (en \textbf{cm})
+  \item height (en \textbf{cm})
+  \item clip
+  \item trim
+\end{itemize}
 
+\subsection{Tablas}
+
+\begin{itemize}
+  \item Revisar \url{https://www.tablesgenerator.com/}
+\end{itemize}
+
+
+\subsection{Manejo de múltiples archivos y \texttt{\textbackslash input}}
+
+
+\section{Matemáticas y Símbolos Científicos}
+Para insertar ecuaciones como parte de un texto se emplea el símbolo dolar (\$) antes y después de la ecuación por ejemplo: $\vec{F} = m \vec{a}$
+
+\subsection{Símbolos matemáticos y científicos}
+Revisar: \url{https://metodos.fam.cie.uva.es/~latex/apuntes/apuntes3.pdf}
 
 \subsection{Entorno displaymath}
-
 % $$\vec{F} = m \vec{a}$$
 
+
 \begin{displaymath}
-  \vec{F} = m \vec{a}
+  \mu = e^{\int P \, dx}
 \end{displaymath}
 
+% Integral en el exponente de e con límites
+\begin{displaymath}
+  e^{\displaystyle\int_{i}^{n} \frac{1}{cd} \, dx}
+\end{displaymath}
+
+
+
+
 \subsection{Entorno equation}
-
 \begin{equation}
-  \vec{F} = m \vec{a}
-  % \label{ec:2newton}
-\end{equation}
-% Joaquin com oincluir la seecion en la ecuacíon
-
-\begin{equation}
-  \int_1^n \alpha \beta \vec{F} = m \vec{a} \frac{a}{b}
-  % \label{ec:2newton}
+  \mu=e^{\displaystyle \int P dx}
 \end{equation}
 
+\subsection{Matrices y alineación de ecuaciones}
 
-\begin{equation}
-\sum_{n = 1}^{\infty}
-\end{equation}
+\begin{minipage}{0.5\textwidth}
+  \begin{lstlisting}[caption = Matrix 01]
+    \begin{equation}
+      \begin{matrix}
+      a & b\\
+      c & d
+      \end{matrix}
+      \end{equation}
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{equation}
+    \begin{matrix}
+    a & b\\
+    c & d
+    \end{matrix}
+    \end{equation}
+\end{minipage}
+
+\begin{minipage}{0.5\textwidth}
+  \begin{lstlisting}[caption = Matrix 01]
+    \begin{equation}
+      \begin{pmatrix}
+      2 & 5 & 0\\
+      7 & 3 & 8\\
+      3 & 0 & 1
+      \end{pmatrix}
+      \end{equation}
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{equation}
+    \begin{pmatrix}
+    2 & 5 & 0\\
+    7 & 3 & 8\\
+    3 & 0 & 1
+    \end{pmatrix}
+    \end{equation}
+\end{minipage}
+
+
+
+\textbf{Ver más ejemplos en}: \url{https://manualdelatex.com/tutoriales/matrices}
+
+\begin{minipage}{0.5\textwidth}
+  \begin{lstlisting}[caption = Ejemplo para alinear ecuaciones]
+    \begin{align}
+      2S & = (1+n)+(2+n-1)+\dots+(n+1),\\
+         & = n(n+1).
+      \end{align}
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{align}
+    2S & = (1+n)+(2+n-1)+\dots+(n+1),\\
+       & = n(n+1).
+    \end{align}
+\end{minipage}
 
 \begin{equation}
   \begin{split}
@@ -83,28 +283,33 @@ Cupidatat sunt nulla occaecat irure reprehenderit mollit et excepteur. Adipisici
   \end{split}
 \end{equation}
 
-\begin{equation}
-  \mu=e^{\int P dx}
-  \end{equation}
+\textbf{Revisar más ejemplos en}: \\
+\url{https://matematicas.uam.es/~fernando.chamizo/asignaturas/2122latex/guides/guia06.pdf}
 
-% joaquin integral grande
-% marca de agua imagen ok
+\section{Gestión de Referencias, Bibliografías y Normativas}
+\begin{enumerate}
+    \item Introducción a BibTeX% y Biber
+    \item Introducción a Zotero y Mendely
+    \item Creación y gestión de bibliografías
+    \item Gestión de citas con \texttt{biblatex}% o \textit{natbib}
+    \item Estilos de citas (APA, IEEE, etc.)
+    \item Formato APA en LaTeX
+    \item Configuración de citas y referencias según APA
+    \item Otras normativas comunes (Chicago, MLA, etc.)
+    % \item Integración de diferentes normativas en un mismo documento
+\end{enumerate}
 
-% \begin{eqnarray*}
-%   A&=& \frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2}\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2},\\
-%   & &\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2}\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2},\\
-%   & &\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2}\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2}
-%   \end{eqnarray*}
+\section{Documentos Académicos y Científicos}
+\begin{enumerate}
+    \item Redacción de artículos científicos
+    \item Producción de libros y reportes largos
+    \item Plantillas y clases de documentos específicas
+    \item Plantilla de la Revista de investigación de Física (RIF) de la UNMSM
+    \item Formatos de Tesis y proyectos de investigación
+\end{enumerate}
 
-\section{tercera seccion}
-Cupidatat sunt nulla occaecat irure reprehenderit mollit et excepteur. Adipisicing sit adipisicing sunt ex et laborum. Pariatur tempor incididunt commodo occaecat. Aute nisi mollit laboris officia quis excepteur proident.
 
-\subsection{primera subseccion}
-Cupidatat sunt nulla occaecat irure reprehenderit mollit et excepteur. Adipisicing sit adipisicing sunt ex et laborum.
 
-\subsubsection{otra seccion}
-
-Pariatur tempor incididunt commodo occaecat. Aute nisi mollit laboris officia quis excepteur proident.
 
 
 
