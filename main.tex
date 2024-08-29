@@ -1,25 +1,19 @@
 \documentclass{article}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% paquetes
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
+\usepackage{multirow}
 \usepackage{caption}
+\usepackage{natbib}
 \usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{url}
 \usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,
-    urlcolor=cyan,
-    pdftitle={Overleaf Example},
-    pdfpagemode=FullScreen,
-    }
-\urlstyle{same}
 \usepackage{listingsutf8} % Paquete para soportar caracteres UTF-8 en listings
+\usepackage[left=3cm, right=3cm, top=2.5cm, bottom=2.5cm]{geometry}
 \lstset{
     inputencoding=utf8, % Permite caracteres especiales
     extendedchars=true, % Activa caracteres extendidos
@@ -33,9 +27,20 @@
     keywordstyle=\color{blue},
     identifierstyle=\color{magenta},
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\numberwithin{equation}{section}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+\urlstyle{same}
 
 \spanishdatedel
-\usepackage[left=3cm, right=3cm, top=2.5cm, bottom=2.5cm]{geometry}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,6 +48,7 @@
 \author{Luis Robles}
 \date{\today}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 \maketitle
 
@@ -60,6 +66,8 @@ En este contexto, surge \LaTeX{}, una herramienta poderosa y ampliamente utiliza
 \LaTeX{}\footnote{Desarrollado por Leslie Lamport} es un sistema de preparación de documentos de alta calidad, especialmente adecuado para la escritura de documentos científicos y técnicos que contienen fórmulas matemáticas complejas. Es una colección de macros y comandos que extienden la funcionalidad de \TeX\footnote{Desarrollado por Donald Knuth en la década de 1970}.
 
 \LaTeX{} se centra en la separación del contenido y el formato, permitiendo a los usuarios escribir en un formato sencillo y claro, mientras que el sistema se encarga de la presentación visual. Esto hace que sea especialmente útil para documentos largos y complejos, donde la consistencia y la calidad tipográfica son importantes.
+
+la parte más dificil está en la sección \ref{ss:dificil}. según la seccion de ecuación (Ec. \ref{ec:2new}) , el logo esta bonito (Figura \ref{fig:logoMFP})
 
 \subsection{Instalación de \LaTeX{} y herramientas necesarias}
 \begin{center}
@@ -83,19 +91,34 @@ En este contexto, surge \LaTeX{}, una herramienta poderosa y ampliamente utiliza
 \end{lstlisting}
 
 \section{Formato y Estructuración de Documentos}
-
 \subsection{Secciones y subsecciones}
-\subsection{Formato de texto (negritas, cursivas, subrayados, etc.)}
+\subsection{Formato de texto}
 
 \subsubsection{Negritas}
+\textbf{Laborum eu amet excepteur veniam } voluptate et incididunt officia ullamco et id. Pariatur sunt laboris proident occaecat. Nisi ipsum occaecat duis non adipisicing.
 
 \subsubsection{Cursivas}
-\subsubsection{Subrayados}
+sunt laboris proident occaecat. Nisi ipsum occaecat duis non adipisicing. \textit{voluptate et incididunt officia} sunt laboris proident occaecat. Nisi ipsum occaecat duis non adipisicing.
 
+% \textit{voluptate et incididunt officia}
+% \emph{voluptate et incididunt officia}
+
+
+
+\subsubsection{Subrayados}
+sunt laboris proident occaecat. Nisi ipsum occaecat duis non adipisicing. sunt\\
+
+\underline{laboris proident occaecat. Nisi ipsum occaecat duis non adipisicing.}
 
 \subsection{Items y Listas}
 \subsubsection{Entorno itemize}
 el torno itemize permite listar el contenido en base a \textbf{ítems}
+
+% \begin{itemize}
+%   \item Primer item
+%   \item Segundo item
+%   \item Tercer item
+% \end{itemize}
 
 \begin{minipage}{0.5\textwidth}
   \begin{lstlisting}[language = TeX, caption = Codigo emjemplo]
@@ -117,6 +140,12 @@ el torno itemize permite listar el contenido en base a \textbf{ítems}
 \subsubsection{Entorno enumerate}
 Permite listar el contenido mediante números
 
+\begin{enumerate}
+  \item Primer item enumerado
+  \item Segundo item enumerado
+  \item Tercer item enumerado
+\end{enumerate}
+
 \begin{minipage}{0.5\textwidth}
   \begin{lstlisting}[language = TeX, caption = Codigo emjemplo]
     \begin{enumerate}
@@ -134,8 +163,25 @@ Permite listar el contenido mediante números
   \end{enumerate}
 \end{minipage}
 
+\section{Descripción}
+\begin{description}
+  \item[Primer item:] laboris proident occaecat. Nisi ipsum occaecat duis non adipisicing. laboris proident occaecat. Nisi ipsum occaecat duis non adipisicing.
+  \item[Segundo item:] laboris proident occaecat. Nisi ipsum occaecat duis non adipisicing. laboris proident occaecat. Nisi ipsum occaecat duis non adipisicing.
+  \item[Tercer item:] laboris proident occaecat. Nisi ipsum occaecat duis non adipisicing. laboris proident occaecat. Nisi ipsum occaecat duis non adipisicing.
+\end{description}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Figuras}
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.3]{img/logoMFP.png}
+  \caption{Logo de MFP}
+  \label{fig:logoMFP}
+\end{figure}
+
+% como incluir una figura en una tabla
+% https://tex.stackexchange.com/questions/53061/insert-image-and-list-inside-a-table
+
 Para insertar una figura podemos usar el comando \textbf{ \textbackslash includegraphics\{ruta de la figura\}}
 
 \begin{minipage}{0.7\textwidth}
@@ -176,128 +222,58 @@ También se puede usar el entono \textbf{figure}
   \item trim
 \end{itemize}
 
-\subsection{Tablas}
+\subsection{Tablas}\label{ss:dificil}
 
-\begin{itemize}
-  \item Revisar \url{https://www.tablesgenerator.com/}
-\end{itemize}
+\input{Capitulos/tablas.tex}
 
+\begin{center}
+  Revisar \url{https://www.tablesgenerator.com/}
+\end{center}
+
+\begin{flushleft}
+  Revisar \url{https://www.tablesgenerator.com/}
+\end{flushleft}
+
+\begin{flushright}
+  Revisar \url{https://www.tablesgenerator.com/}
+\end{flushright}
 
 \subsection{Manejo de múltiples archivos y \texttt{\textbackslash input}}
 
-
 \section{Matemáticas y Símbolos Científicos}
-Para insertar ecuaciones como parte de un texto se emplea el símbolo dolar (\$) antes y después de la ecuación por ejemplo: $\vec{F} = m \vec{a}$
+Para insertar ecuaciones como parte de un texto se emplea el símbolo dolar (\$) antes y después de la ecuación por ejemplo: $\vec{F} = m \vec{a}$, (Ver Figura \ref{fig:logoMFP})
 
-\subsection{Símbolos matemáticos y científicos}
-Revisar: \url{https://metodos.fam.cie.uva.es/~latex/apuntes/apuntes3.pdf}
-
-\subsection{Entorno displaymath}
-% $$\vec{F} = m \vec{a}$$
-
-
-\begin{displaymath}
-  \mu = e^{\int P \, dx}
-\end{displaymath}
-
-% Integral en el exponente de e con límites
-\begin{displaymath}
-  e^{\displaystyle\int_{i}^{n} \frac{1}{cd} \, dx}
-\end{displaymath}
-
-
-
-
-\subsection{Entorno equation}
-\begin{equation}
-  \mu=e^{\displaystyle \int P dx}
-\end{equation}
-
-\subsection{Matrices y alineación de ecuaciones}
-
-\begin{minipage}{0.5\textwidth}
-  \begin{lstlisting}[caption = Matrix 01]
-    \begin{equation}
-      \begin{matrix}
-      a & b\\
-      c & d
-      \end{matrix}
-      \end{equation}
-    \end{lstlisting}
-\end{minipage}
-\begin{minipage}{0.5\textwidth}
-  \begin{equation}
-    \begin{matrix}
-    a & b\\
-    c & d
-    \end{matrix}
-    \end{equation}
-\end{minipage}
-
-\begin{minipage}{0.5\textwidth}
-  \begin{lstlisting}[caption = Matrix 01]
-    \begin{equation}
-      \begin{pmatrix}
-      2 & 5 & 0\\
-      7 & 3 & 8\\
-      3 & 0 & 1
-      \end{pmatrix}
-      \end{equation}
-    \end{lstlisting}
-\end{minipage}
-\begin{minipage}{0.5\textwidth}
-  \begin{equation}
-    \begin{pmatrix}
-    2 & 5 & 0\\
-    7 & 3 & 8\\
-    3 & 0 & 1
-    \end{pmatrix}
-    \end{equation}
-\end{minipage}
-
-
-
-\textbf{Ver más ejemplos en}: \url{https://manualdelatex.com/tutoriales/matrices}
-
-\begin{minipage}{0.5\textwidth}
-  \begin{lstlisting}[caption = Ejemplo para alinear ecuaciones]
-    \begin{align}
-      2S & = (1+n)+(2+n-1)+\dots+(n+1),\\
-         & = n(n+1).
-      \end{align}
-    \end{lstlisting}
-\end{minipage}
-\begin{minipage}{0.5\textwidth}
-  \begin{align}
-    2S & = (1+n)+(2+n-1)+\dots+(n+1),\\
-       & = n(n+1).
-    \end{align}
-\end{minipage}
-
-\begin{equation}
-  \begin{split}
-    H_c&=\frac{1}{2n} \sum^n_{l=0}(-1)^{l}(n-{l})^{p-2}
-    \sum_{l _1+\dots+ l _p=l}\prod^p_{i=1} \binom{n_i}{l _i}\\
-    &\quad\cdot[(n-l )-(n_i-l _i)]^{n_i-l _i}\cdot
-    \Bigl[(n-l )^2-\sum^p_{j=1}(n_i-l _i)^2\Bigr].
-  \end{split}
-\end{equation}
+\include{Capitulos/ecMatematicas.tex}
 
 \textbf{Revisar más ejemplos en}: \\
 \url{https://matematicas.uam.es/~fernando.chamizo/asignaturas/2122latex/guides/guia06.pdf}
 
+
+\section{Templates}
+\textbf{Revisar:} \url{https://www.overleaf.com/gallery}
+
+\textbf{Revisar:} \url{https://www.overleaf.com/gallery/tagged/spanish}
+% https://www.overleaf.com/latex/templates/ieee-conference-template/grfzhhncsfqn
+
 \section{Gestión de Referencias, Bibliografías y Normativas}
-\begin{enumerate}
-    \item Introducción a BibTeX% y Biber
-    \item Introducción a Zotero y Mendely
-    \item Creación y gestión de bibliografías
-    \item Gestión de citas con \texttt{biblatex}% o \textit{natbib}
-    \item Estilos de citas (APA, IEEE, etc.)
-    \item Formato APA en LaTeX
-    \item Configuración de citas y referencias según APA
-    \item Otras normativas comunes (Chicago, MLA, etc.)
-    % \item Integración de diferentes normativas en un mismo documento
-\end{enumerate}
+\subsection{Introducción a BibTeX}
+    BibTeX es una herramienta y un formato utilizado para gestionar y automatizar la creación de bibliografías en documentos científicos y académicos, especialmente en combinación con el sistema de preparación de documentos LaTeX. Desarrollado por Oren Patashnik y Leslie Lamport en 1985, BibTeX permite a los autores de documentos manejar referencias bibliográficas de manera eficiente y consistente.
+
+\subsubsection{Características principales de BibTeX}
+	\begin{description}
+    \item[Separación de contenido y formato:] BibTeX permite a los usuarios mantener las entradas bibliográficas en un archivo separado con extensión .bib. Esto significa que puedes concentrarte en escribir tu contenido en LaTeX sin preocuparte por el formato de las citas o la bibliografía. El formato y estilo de las referencias se puede cambiar fácilmente utilizando distintos estilos de bibliografía.
+    \item[Automatización de referencias:] En lugar de escribir manualmente las referencias en el documento, BibTeX permite que las citas se generen automáticamente. El autor simplemente necesita citar la clave de la referencia en el documento LaTeX, y BibTeX se encargará de buscar en el archivo .bib correspondiente y generar la bibliografía de acuerdo con el estilo especificado.
+    \item[Estilos de bibliografía:] BibTeX ofrece una variedad de estilos de cita (como plain, unsrt, alpha, abbrv, etc.), y se pueden crear estilos personalizados según las normas de publicación de revistas académicas o requisitos específicos de instituciones.
+    \item[Flexibilidad y compatibilidad:] BibTeX es compatible con una amplia gama de bases de datos bibliográficas y gestores de referencias como EndNote, Zotero y Mendeley, lo que facilita la importación y exportación de referencias entre diferentes plataformas.
+  \end{description}
+
+\subsection{Introducción a Zotero}
+% Mendeley
+
+\subsection{Creación y gestión de bibliografías}
+
+\subsection{Configuración de citas y referencias según APA}
+% https://metodos.fam.cie.uva.es/~latex/apuntes/apuntes19.pdf
 
 \section{Documentos Académicos y Científicos}
 \begin{enumerate}
@@ -308,11 +284,13 @@ Revisar: \url{https://metodos.fam.cie.uva.es/~latex/apuntes/apuntes3.pdf}
     \item Formatos de Tesis y proyectos de investigación
 \end{enumerate}
 
+% https://snippet-generator.app/
 
+según \cite{DATTA2017} dasds dsa  dsa  \citep{VANDONGEN2012}
 
+\cite{VANDONGEN2012}  dsadsad asd sad asd \cite{GRATZER2007}
 
-
-
-
+\bibliographystyle{plain} % apalike, apacite, unsrt, acm, plain, vancouver
+\bibliography{Reff}
+% APA 7MA EDICIÓN???
 \end{document}
-
